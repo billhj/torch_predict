@@ -1,0 +1,231 @@
+Running on GPU
+LSTM(
+  (lstm): LSTM(7, 100, batch_first=True)
+  (fc_1): Linear(in_features=100, out_features=128, bias=True)
+  (fc_2): Linear(in_features=128, out_features=2, bias=True)
+  (relu): ReLU()
+)
+Epoch: 4, train loss: 332.44769, test loss: 232.08849
+Epoch: 9, train loss: 327.38562, test loss: 228.67062
+Epoch: 14, train loss: 320.74228, test loss: 223.82062
+Epoch: 19, train loss: 310.87772, test loss: 216.29828
+Epoch: 24, train loss: 296.83490, test loss: 206.40125
+Epoch: 29, train loss: 278.95102, test loss: 196.16687
+Epoch: 34, train loss: 257.34283, test loss: 182.27119
+Epoch: 39, train loss: 233.84314, test loss: 166.70084
+Epoch: 44, train loss: 209.51672, test loss: 150.51999
+Epoch: 49, train loss: 185.64018, test loss: 136.73471
+End of 49, train data mae 9.02901840209961,  rmse 13.45239543914795, mape 7938238803083264.0
+Epoch: 54, train loss: 161.87758, test loss: 125.23219
+Epoch: 59, train loss: 139.98755, test loss: 116.05093
+Epoch: 64, train loss: 120.62316, test loss: 109.30693
+Epoch: 69, train loss: 105.80251, test loss: 104.94398
+Epoch: 74, train loss: 94.88825, test loss: 103.68336
+Epoch: 79, train loss: 85.14832, test loss: 103.98802
+Epoch: 84, train loss: 77.57275, test loss: 102.77373
+Epoch: 89, train loss: 71.56694, test loss: 101.18803
+Epoch: 94, train loss: 66.09412, test loss: 96.77571
+Epoch: 99, train loss: 60.91329, test loss: 93.22640
+End of 99, train data mae 6.636873722076416,  rmse 7.7402825355529785, mape 1.256860975890432e+16
+Epoch: 104, train loss: 55.61706, test loss: 87.90488
+Epoch: 109, train loss: 49.60822, test loss: 80.69994
+Epoch: 114, train loss: 46.44344, test loss: 77.65909
+Epoch: 119, train loss: 43.51397, test loss: 76.82505
+Epoch: 124, train loss: 41.12202, test loss: 75.42542
+Epoch: 129, train loss: 38.69880, test loss: 73.60316
+Epoch: 134, train loss: 36.57589, test loss: 72.88136
+Epoch: 139, train loss: 34.95927, test loss: 72.81953
+Epoch: 144, train loss: 33.35685, test loss: 72.52143
+Epoch: 149, train loss: 32.13499, test loss: 72.38100
+End of 149, train data mae 3.7572522163391113,  rmse 5.6462531089782715, mape 3207963686731776.0
+Epoch: 154, train loss: 30.98803, test loss: 72.61501
+Epoch: 159, train loss: 30.03047, test loss: 73.34551
+Epoch: 164, train loss: 29.16894, test loss: 74.01852
+Epoch: 169, train loss: 28.64419, test loss: 75.30711
+Epoch: 174, train loss: 28.05238, test loss: 76.77426
+Epoch: 179, train loss: 27.55634, test loss: 77.34954
+Epoch: 184, train loss: 27.10656, test loss: 77.91609
+Epoch: 189, train loss: 26.77465, test loss: 78.60036
+Epoch: 194, train loss: 26.30866, test loss: 78.28146
+Epoch: 199, train loss: 25.92333, test loss: 78.03860
+End of 199, train data mae 2.930354118347168,  rmse 5.084308624267578, mape 1040595682328576.0
+Epoch: 204, train loss: 25.49907, test loss: 79.56431
+Epoch: 209, train loss: 25.09631, test loss: 78.95433
+Epoch: 214, train loss: 24.74149, test loss: 78.91984
+Epoch: 219, train loss: 24.32708, test loss: 79.20414
+Epoch: 224, train loss: 24.40496, test loss: 78.28670
+Epoch: 229, train loss: 23.63028, test loss: 79.84557
+Epoch: 234, train loss: 23.50267, test loss: 78.80936
+Epoch: 239, train loss: 23.09089, test loss: 77.65807
+Epoch: 244, train loss: 22.87454, test loss: 77.86357
+Epoch: 249, train loss: 22.52859, test loss: 78.53027
+End of 249, train data mae 2.662123441696167,  rmse 4.746535778045654, mape 1085321190047744.0
+Epoch: 254, train loss: 22.32099, test loss: 78.90008
+Epoch: 259, train loss: 22.00852, test loss: 78.37823
+Epoch: 264, train loss: 22.23924, test loss: 79.46026
+Epoch: 269, train loss: 21.76248, test loss: 77.47836
+Epoch: 274, train loss: 21.40264, test loss: 76.09842
+Epoch: 279, train loss: 21.30730, test loss: 76.80079
+Epoch: 284, train loss: 21.05727, test loss: 77.28105
+Epoch: 289, train loss: 20.84988, test loss: 77.24254
+Epoch: 294, train loss: 20.67138, test loss: 77.32905
+Epoch: 299, train loss: 20.52733, test loss: 76.96416
+End of 299, train data mae 2.4631752967834473,  rmse 4.524089336395264, mape 834711593156608.0
+Epoch: 304, train loss: 20.40326, test loss: 75.76279
+Epoch: 309, train loss: 21.32183, test loss: 75.51536
+Epoch: 314, train loss: 20.85829, test loss: 78.24249
+Epoch: 319, train loss: 20.56304, test loss: 75.57449
+Epoch: 324, train loss: 20.16694, test loss: 76.57980
+Epoch: 329, train loss: 19.91891, test loss: 76.11536
+Epoch: 334, train loss: 19.74177, test loss: 76.74361
+Epoch: 339, train loss: 19.58635, test loss: 75.70312
+Epoch: 344, train loss: 19.44729, test loss: 76.69334
+Epoch: 349, train loss: 19.35747, test loss: 75.60002
+End of 349, train data mae 2.3490920066833496,  rmse 4.398685455322266, mape 750618280984576.0
+Epoch: 354, train loss: 19.28962, test loss: 75.69922
+Epoch: 359, train loss: 19.19503, test loss: 75.72589
+Epoch: 364, train loss: 19.11634, test loss: 75.21210
+Epoch: 369, train loss: 19.04172, test loss: 74.90208
+Epoch: 374, train loss: 19.00220, test loss: 75.48927
+Epoch: 379, train loss: 18.95299, test loss: 75.19693
+Epoch: 384, train loss: 18.85121, test loss: 74.94958
+Epoch: 389, train loss: 18.78832, test loss: 74.34953
+Epoch: 394, train loss: 18.73404, test loss: 74.04092
+Epoch: 399, train loss: 18.67371, test loss: 74.35930
+End of 399, train data mae 2.2922019958496094,  rmse 4.320497035980225, mape 749488167714816.0
+Epoch: 404, train loss: 18.63830, test loss: 74.74324
+Epoch: 409, train loss: 18.56856, test loss: 73.97278
+Epoch: 414, train loss: 18.52249, test loss: 73.10398
+Epoch: 419, train loss: 18.45529, test loss: 72.88124
+Epoch: 424, train loss: 18.39246, test loss: 72.62534
+Epoch: 429, train loss: 18.37563, test loss: 73.57339
+Epoch: 434, train loss: 18.90637, test loss: 71.01702
+Epoch: 439, train loss: 18.51155, test loss: 71.10489
+Epoch: 444, train loss: 18.25398, test loss: 70.71074
+Epoch: 449, train loss: 18.14328, test loss: 71.60477
+End of 449, train data mae 2.2652273178100586,  rmse 4.2592363357543945, mape 780522796089344.0
+Epoch: 454, train loss: 18.18191, test loss: 71.92641
+Epoch: 459, train loss: 18.11828, test loss: 71.61300
+Epoch: 464, train loss: 18.01083, test loss: 70.77831
+Epoch: 469, train loss: 17.97575, test loss: 70.19479
+Epoch: 474, train loss: 18.10593, test loss: 71.74179
+Epoch: 479, train loss: 17.93280, test loss: 70.58991
+Epoch: 484, train loss: 18.06179, test loss: 68.95926
+Epoch: 489, train loss: 17.83040, test loss: 69.07917
+Epoch: 494, train loss: 17.86035, test loss: 69.99615
+Epoch: 499, train loss: 17.82307, test loss: 70.75232
+End of 499, train data mae 2.2296223640441895,  rmse 4.229018211364746, mape 847407248048128.0
+Epoch: 504, train loss: 17.77111, test loss: 69.17079
+Epoch: 509, train loss: 17.82511, test loss: 67.96829
+Epoch: 514, train loss: 17.59289, test loss: 68.51724
+Epoch: 519, train loss: 17.63543, test loss: 69.46772
+Epoch: 524, train loss: 17.55680, test loss: 69.74560
+Epoch: 529, train loss: 17.69301, test loss: 68.11724
+Epoch: 534, train loss: 18.10295, test loss: 67.30390
+Epoch: 539, train loss: 17.80805, test loss: 66.87724
+Epoch: 544, train loss: 17.63763, test loss: 67.30222
+Epoch: 549, train loss: 17.50399, test loss: 67.71124
+End of 549, train data mae 2.1924703121185303,  rmse 4.175730228424072, mape 647892528267264.0
+Epoch: 554, train loss: 17.46880, test loss: 67.62141
+Epoch: 559, train loss: 17.33605, test loss: 67.27615
+Epoch: 564, train loss: 17.26080, test loss: 67.94949
+Epoch: 569, train loss: 17.25429, test loss: 68.38054
+Epoch: 574, train loss: 17.22472, test loss: 67.62975
+Epoch: 579, train loss: 17.20105, test loss: 68.22201
+Epoch: 584, train loss: 17.20365, test loss: 66.98187
+Epoch: 589, train loss: 17.25998, test loss: 68.59904
+Epoch: 594, train loss: 17.15702, test loss: 67.60552
+Epoch: 599, train loss: 17.13489, test loss: 68.32779
+End of 599, train data mae 2.1508681774139404,  rmse 4.135643482208252, mape 766789638160384.0
+Epoch: 604, train loss: 17.03773, test loss: 66.99171
+Epoch: 609, train loss: 17.01600, test loss: 68.59696
+Epoch: 614, train loss: 17.36145, test loss: 65.73456
+Epoch: 619, train loss: 16.93031, test loss: 66.65164
+Epoch: 624, train loss: 16.96004, test loss: 67.17645
+Epoch: 629, train loss: 17.07289, test loss: 68.46489
+Epoch: 634, train loss: 16.98391, test loss: 68.63143
+Epoch: 639, train loss: 16.82024, test loss: 68.04987
+Epoch: 644, train loss: 16.85381, test loss: 66.80109
+Epoch: 649, train loss: 16.83835, test loss: 66.56612
+End of 649, train data mae 2.168794631958008,  rmse 4.128556251525879, mape 632405077524480.0
+Epoch: 654, train loss: 16.98046, test loss: 65.78091
+Epoch: 659, train loss: 17.09664, test loss: 65.65211
+Epoch: 664, train loss: 17.04835, test loss: 66.14645
+Epoch: 669, train loss: 16.81909, test loss: 67.39486
+Epoch: 674, train loss: 16.69378, test loss: 67.71366
+Epoch: 679, train loss: 16.65185, test loss: 67.98390
+Epoch: 684, train loss: 16.62046, test loss: 68.06853
+Epoch: 689, train loss: 16.59967, test loss: 67.68044
+Epoch: 694, train loss: 16.57974, test loss: 67.06344
+Epoch: 699, train loss: 16.57171, test loss: 66.71358
+End of 699, train data mae 2.1078243255615234,  rmse 4.068802833557129, mape 663260391014400.0
+Epoch: 704, train loss: 16.54129, test loss: 66.68544
+Epoch: 709, train loss: 16.50614, test loss: 67.44212
+Epoch: 714, train loss: 16.48276, test loss: 66.83858
+Epoch: 719, train loss: 16.46649, test loss: 66.28967
+Epoch: 724, train loss: 16.45227, test loss: 67.11645
+Epoch: 729, train loss: 16.44861, test loss: 65.92034
+Epoch: 734, train loss: 16.55496, test loss: 67.74687
+Epoch: 739, train loss: 16.57107, test loss: 65.78226
+Epoch: 744, train loss: 16.52974, test loss: 64.99264
+Epoch: 749, train loss: 16.39398, test loss: 66.31567
+End of 749, train data mae 2.0640666484832764,  rmse 4.042120456695557, mape 599024390373376.0
+Epoch: 754, train loss: 16.47713, test loss: 67.22203
+Epoch: 759, train loss: 16.30291, test loss: 66.58550
+Epoch: 764, train loss: 16.36576, test loss: 65.43713
+Epoch: 769, train loss: 16.30445, test loss: 68.51292
+Epoch: 774, train loss: 16.22923, test loss: 67.61722
+Epoch: 779, train loss: 16.21076, test loss: 68.21796
+Epoch: 784, train loss: 16.29008, test loss: 69.49509
+Epoch: 789, train loss: 17.26860, test loss: 65.98463
+Epoch: 794, train loss: 16.52888, test loss: 68.69546
+Epoch: 799, train loss: 16.18009, test loss: 68.84221
+End of 799, train data mae 2.0605430603027344,  rmse 4.037395477294922, mape 573690324451328.0
+Epoch: 804, train loss: 16.17826, test loss: 68.27264
+Epoch: 809, train loss: 16.13126, test loss: 68.79233
+Epoch: 814, train loss: 16.10614, test loss: 68.84707
+Epoch: 819, train loss: 16.12444, test loss: 67.93667
+Epoch: 824, train loss: 16.07228, test loss: 68.00349
+Epoch: 829, train loss: 16.04613, test loss: 68.17926
+Epoch: 834, train loss: 16.01100, test loss: 67.71796
+Epoch: 839, train loss: 15.98145, test loss: 67.78935
+Epoch: 844, train loss: 15.98314, test loss: 68.02877
+Epoch: 849, train loss: 16.32830, test loss: 65.54469
+End of 849, train data mae 2.1392710208892822,  rmse 4.068654537200928, mape 607247776350208.0
+Epoch: 854, train loss: 16.16295, test loss: 67.03494
+Epoch: 859, train loss: 16.14535, test loss: 64.37316
+Epoch: 864, train loss: 16.33094, test loss: 65.89342
+Epoch: 869, train loss: 16.27021, test loss: 66.19212
+Epoch: 874, train loss: 16.07660, test loss: 67.11810
+Epoch: 879, train loss: 15.93319, test loss: 67.07119
+Epoch: 884, train loss: 15.88234, test loss: 67.25858
+Epoch: 889, train loss: 15.83913, test loss: 66.95470
+Epoch: 894, train loss: 15.81981, test loss: 66.96380
+Epoch: 899, train loss: 15.80286, test loss: 66.58060
+End of 899, train data mae 2.02398419380188,  rmse 3.974088191986084, mape 557662110482432.0
+Epoch: 904, train loss: 15.78656, test loss: 66.28210
+Epoch: 909, train loss: 15.77127, test loss: 66.83604
+Epoch: 914, train loss: 15.74250, test loss: 66.23332
+Epoch: 919, train loss: 15.72456, test loss: 66.49010
+Epoch: 924, train loss: 15.79830, test loss: 65.14725
+Epoch: 929, train loss: 15.98536, test loss: 66.88795
+Epoch: 934, train loss: 16.00174, test loss: 66.98772
+Epoch: 939, train loss: 15.78829, test loss: 67.36195
+Epoch: 944, train loss: 15.78001, test loss: 65.96024
+Epoch: 949, train loss: 15.71520, test loss: 65.94863
+End of 949, train data mae 2.014085292816162,  rmse 3.96274733543396, mape 573002861248512.0
+Epoch: 954, train loss: 15.69135, test loss: 65.51957
+Epoch: 959, train loss: 15.71460, test loss: 66.74639
+Epoch: 964, train loss: 15.61424, test loss: 65.72855
+Epoch: 969, train loss: 15.62739, test loss: 65.04589
+Epoch: 974, train loss: 16.01009, test loss: 67.74707
+Epoch: 979, train loss: 15.65117, test loss: 67.04165
+Epoch: 984, train loss: 15.69020, test loss: 64.82090
+Epoch: 989, train loss: 15.64482, test loss: 64.48461
+Epoch: 994, train loss: 15.63572, test loss: 66.11368
+Epoch: 999, train loss: 15.68736, test loss: 66.60487
+End of 999, train data mae 2.001739263534546,  rmse 3.9609386920928955, mape 653619934265344.0
+End of 999, train data mae 2.001739263534546, rmse 3.9609386920928955, mape 653619934265344.0
+End of 999, test data mae 3.648482322692871, rmse 8.16118049621582, mape 685392089055232.0
+save model into file: mylstm20240125.pth
+Hi, Train
