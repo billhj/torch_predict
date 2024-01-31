@@ -7,8 +7,10 @@ import matplotlib.pyplot as plt
 
 import Evaluation
 
+useGPU = True
+#useGPU = False
 mydevice = torch.device("cuda:0")
-if torch.cuda.is_available():
+if torch.cuda.is_available() and useGPU:
     mydevice = torch.device("cuda:0")
     print("Running on GPU")
 else:
@@ -17,19 +19,20 @@ else:
 
 #train loop function
 def training_loop(n_epochs, model, optimiser, loss_fn, X_train, y_train, X_test, y_test):
+    X_train, y_train, X_test, y_test = X_train.to(mydevice), y_train.to(mydevice), X_test.to(mydevice), y_test.to(mydevice)
     for epoch in range(n_epochs):
         model.train()
         optimiser.zero_grad()
-        model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
-                             torch.zeros(1, 1, model.hidden_size).to(mydevice))
+        #model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
+         #                    torch.zeros(1, 1, model.hidden_size).to(mydevice))
         outputs = model.forward(X_train)
         loss = loss_fn(outputs, y_train)
         loss.backward()
         optimiser.step()
 
         model.eval()
-        model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
-                             torch.zeros(1, 1, model.hidden_size).to(mydevice))
+        #model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
+         #                    torch.zeros(1, 1, model.hidden_size).to(mydevice))
         test_preds = model(X_test)
         test_loss = loss_fn(test_preds, y_test)
 
@@ -38,22 +41,22 @@ def training_loop(n_epochs, model, optimiser, loss_fn, X_train, y_train, X_test,
 
         if (epoch + 1) % 50 == 0:
             model.eval()
-            model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
-                                 torch.zeros(1, 1, model.hidden_size).to(mydevice))
+            #model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
+             #                    torch.zeros(1, 1, model.hidden_size).to(mydevice))
             train_preds = model(X_train)
             evalTrain = Evaluation.evalMetrics(y_train.cpu().detach().numpy(), train_preds.cpu().detach().numpy())
             print(f"End of {epoch}, train data mae {evalTrain[0]},  rmse {evalTrain[2]}, mape {evalTrain[3]}")
 
     model.eval()
-    model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
-                         torch.zeros(1, 1, model.hidden_size).to(mydevice))
+    #model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
+     #                    torch.zeros(1, 1, model.hidden_size).to(mydevice))
     train_preds = model(X_train)
     evalTrain = Evaluation.evalMetrics(y_train.cpu().detach().numpy(), train_preds.cpu().detach().numpy())
     print(f"End of {epoch}, train data mae {evalTrain[0]}, rmse {evalTrain[2]}, mape {evalTrain[3]}")
 
     model.eval()
-    model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
-                         torch.zeros(1, 1, model.hidden_size).to(mydevice))
+    #model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
+     #                    torch.zeros(1, 1, model.hidden_size).to(mydevice))
     test_preds = model(X_test)
     evalTest = Evaluation.evalMetrics(y_test.cpu().detach().numpy(), test_preds.cpu().detach().numpy())
     print(f"End of {epoch}, test data mae {evalTest[0]}, rmse {evalTest[2]}, mape {evalTest[3]}")
@@ -74,7 +77,7 @@ def loadModel(filename):
     return model
 
 class LSTM(nn.Module):
-    def __init__(self, input_size=1, output_size=1, hidden_size=100, num_layers=1):
+    def __init__(self, input_size=1, output_size=1, hidden_size=100, num_layers=1, bidirectional=False):
         # num_layers=2 would mean stacking two LSTMs together to form a stacked LSTM
         # hidden_size (the size of the output from the last LSTM layer)
         super().__init__()
@@ -82,16 +85,20 @@ class LSTM(nn.Module):
         self.hidden_size = hidden_size
         self.num_layers = num_layers
         self.output_size = output_size
-        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, batch_first=True)
-        self.fc_1 = nn.Linear(hidden_size, 128)
+        if(bidirectional):
+            self.num_directions = 2
+        else:
+            self.num_directions = 1
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, bidirectional=bidirectional, batch_first=True)
+        self.fc_1 = nn.Linear(hidden_size*self.num_directions, 128)
         self.fc_2 = nn.Linear(128, output_size)
         self.relu = nn.ReLU()
 
     def forward(self, x):
-        h_0 = Variable(torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(mydevice))
-        c_0 = Variable(torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(mydevice))
+        h_0 = Variable(torch.zeros(self.num_layers*self.num_directions, x.size(0), self.hidden_size).to(mydevice))
+        c_0 = Variable(torch.zeros(self.num_layers*self.num_directions, x.size(0), self.hidden_size).to(mydevice))
         lstm_out, (hn, cn) = self.lstm(x, (h_0, c_0))
-        hn = hn.view(-1, self.hidden_size)
+        hn = hn.view(-1, self.hidden_size*self.num_directions)
         predictions = self.relu(hn)
         predictions = self.fc_1(predictions)
         predictions = self.relu(predictions)
@@ -101,7 +108,8 @@ class LSTM(nn.Module):
 
 
 
-def trainLSTMModel(X_train, y_train, X_test, y_test, epochs=1000, savefilename='mylstm20240125', hidden_size=100, num_layers=1):
+def trainLSTMModel(X_train, y_train, X_test, y_test, epochs=5000, savefilename='mylstm20240125', hidden_size=100, num_layers=1):
+    X_train, y_train, X_test, y_test = X_train.to(mydevice), y_train.to(mydevice), X_test.to(mydevice), y_test.to(mydevice)
     input_size = X_train.shape[-1]
     output_size = y_train.shape[-1]
     model = LSTM(input_size, output_size, hidden_size, num_layers).to(mydevice)
@@ -114,12 +122,11 @@ def trainLSTMModel(X_train, y_train, X_test, y_test, epochs=1000, savefilename='
     print(f"save model into file: {filename}")
 
 
-def evalLSTMModel(modelfilename, data):
-    model = torch.load(modelfilename)
+def evalLSTMModel(model, data):
     model.eval()
-    model.hidden_cell = (torch.zeros(1, 1, model.hidden_size),
-                         torch.zeros(1, 1, model.hidden_size))
-    test_preds = model(data)
+    #model.hidden_cell = (torch.zeros(1, 1, model.hidden_size).to(mydevice),
+     #                    torch.zeros(1, 1, model.hidden_size).to(mydevice))
+    test_preds = model(data.to(mydevice))
     return test_preds
 
 if __name__ == '__main__':
